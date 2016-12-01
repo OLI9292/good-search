@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Good Search</title>
+    <style>
+      body {
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 12px;
+        width: 300px;
+        height: 500px;
+        background-color: #d0d8da;
+      }
+      .header, .content, .site-row, .footer {
+        width: 100%;
+      }
+      .site-row {
+        height: 40px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        margin-left: 5%
+      }
+      .header {
+        text-align: center;
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        letter-spacing: 1px;
+        font-size: 24px;
+        text-transform: uppercase;
+        text-shadow:
+        -0.4px -0.4px 0 violet,
+        0.4px -0.4px 0 violet,
+        -0.4px 0.4px 0 violet,
+        0.4px 0.4px 0 violet;  
+      }
+      .site, .key {
+        height: 100%;
+        width: 45%;
+        display: inline-block;
+      }
+      .key {
+        position: relative;
+        top: -15px;
+        text-align: center;
+        font-size: 18px;
+        text-transform: capitalize;
+      }
+      .site img {
+        height: 100%;
+        width: auto;
+        display: block;
+        margin: 0 auto;
+      }
+      .save {
+        width: 50px;
+        height: 15px;
+        line-height: 15px;
+        padding: 10px;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 14px;
+        text-transform: uppercase;
+        background-color: black;
+        color: white;
+        border: solid 1px white;
+        -webkit-transition: border 500ms ease-out;
+        -moz-transition: border 500ms ease-out;
+        -o-transition: border 500ms ease-out;
+        transition: border 500ms ease-out;
+      }
+      .save:hover {
+        cursor: pointer;
+        border: solid 1px violet;
+      }
+    </style>
+    <script src="jquery.js"></script>
+    <script src="popup.js"></script>
+  </head>
+  <body>
+    <h1 class="header">Good Search</h1>
+    <div class="content">
+      <div class="site-row">
+        <div class="site"><img src="images/youtube.png" alt="Youtube Logo"></div>
+        <div class="key" data-site="youtube"></div>
+      </div>
+      <div class="site-row">
+        <div class="site"><img src="images/reddit.png" alt="Reddit Logo"></div>
+        <div class="key" data-site="reddit"></div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="save">Save</div>
+    </div>
+  </body>
+</html>
