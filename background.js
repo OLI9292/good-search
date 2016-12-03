@@ -1,13 +1,8 @@
 var localstorage;
 
-chrome.runtime.onMessage.addListener(
-  function(req, sender, sendResponse) {
-    if(req.data) {
-      localstorage = req.data;
-      sendResponse({ msg: "data saved" });
-    }
-  }
-);
+chrome.runtime.onMessage.addListener(function(req) {
+  if(req.data) { localstorage = req.data; }
+});
 
 function getRedirect(url) {
   var search = url.split("search?q=")[1].split("&oq=")[0];
@@ -19,7 +14,7 @@ function getRedirect(url) {
 function matchRedirect(searchKey, searchTerm) {
   for(obj of localstorage) {
     if(searchKey === obj["key"].toLowerCase()) {
-      return { redirectUrl: obj["url"] + searchTerm };
+      return { redirectUrl: obj["searchUrl"] + searchTerm };
     }
   }
 };
