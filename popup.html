@@ -6,17 +6,18 @@
       body {
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
         font-size: 12px;
-        width: 250px;
-        height: 500px;
+        width: 215px;
+        height: 575px;
       }
-      .header, .content, .site-row, .footer {
+      .header, .content, .footer {
         width: 100%;
       }
       .site-row {
         height: 40px;
         padding-top: 10px;
         padding-bottom: 10px;
-        margin-left: 5%
+        width: 114%;
+        margin-left: -7%;
       }
       .header {
         text-align: center;
@@ -26,28 +27,60 @@
         font-size: 24px;
         text-transform: uppercase;
         text-shadow:
-        -0.4px -0.4px 0 violet,
-        0.4px -0.4px 0 violet,
-        -0.4px 0.4px 0 violet,
-        0.4px 0.4px 0 violet;  
+        -2px -2px 0 #F0F8FF,
+        2px -2px 0 #F0F8FF,
+        -2px 2px 0 #F0F8FF,
+        2px 2px 0 #F0F8FF;  
       }
       .site, .key {
         height: 100%;
-        width: 45%;
         display: inline-block;
         vertical-align: middle
       }
+      .site {
+        width: 55%;
+      }
       .key {
+        width: 35%;
         position: relative;
         text-align: center;
         font-size: 18px;
         text-transform: capitalize;
+      }
+      .keys {
+        position: relative;
+        top: 30%;
+        transform: translateY(-30%);
       }
       .site img {
         width: 75px;
         height: auto;
         display: block;
         margin: 0 auto;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .site-row:nth-child(odd) {
+        background: #F0F8FF;
+      }
+      .instructions {
+        position: absolute;
+        color: white;
+        background-color: black;
+        padding: 25px;
+        bottom: 0;
+        line-height: 20px;
+        font-size: 13px;
+        margin-left: -5%;
+        display: none;
+      }
+      .instructions-button {
+        position: fixed;
+        bottom: 5px;
+        cursor: pointer;
+        font-size: 13px;
+        text-decoration: underline;
       }
     </style>
     <script src="jquery.js"></script>
@@ -64,6 +97,10 @@
       <div class="site-row"></div>
       <div class="site-row"></div>
       <div class="site-row"></div>
+    </div>
+    <div class="instructions">Good Search lets you use the Chrome address bar as a shortcut to searching popular sites.  Just preface your search with the chosen letter.<br /><br />For example, if you've saved YouTube as "Y", then you can type "y cat videos" in the address bar, press enter, and you will be redirected to YouTube.</div>
+    <div class="footer">
+      <div class="instructions-button">Instructions</div>
     </div>
   </body>
 </html>

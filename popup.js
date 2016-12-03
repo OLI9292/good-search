@@ -90,7 +90,17 @@ function sendDataToBackground(profile) {
   chrome.runtime.sendMessage({ data: profile });
 };
 
+function addInstructions() {
+  $(".instructions-button").hover(function() {
+      $(".instructions").show();
+    }, function() {
+      $(".instructions").hide();
+    }
+  );
+};
+
 document.addEventListener('DOMContentLoaded', function() {
   setInitialData();
   loadContent();
+  addInstructions();
 });
