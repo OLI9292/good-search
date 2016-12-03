@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Good Search",
   "description": "Good Search",
-  "version": "1.0",
+  "version": "0.0.0.1",
   "browser_action": {
     "default_icon": "images/icon.png",
     "default_popup": "popup.html",
@@ -11,19 +11,7 @@
   "background": {
     "scripts": ["jquery.js", "background.js"]
   },
-  "commands": {
-    "google": {
-      "suggested_key": {
-        "windows": "Ctrl+G",
-        "mac": "Command+G"
-      },
-      "global": true,
-      "description": "google"
-    }
-  },
   "permissions": [
-    "tabs",
-    "activeTab",
     "https://ajax.googleapis.com/",
     "webRequest",
     "webRequestBlocking",

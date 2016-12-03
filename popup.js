@@ -14,9 +14,11 @@ var disabledKeys = [];
 function setInitialData() {
   chrome.storage.sync.get("profile", function (obj) {
     if(typeof obj.profile === "undefined") {
-      chrome.storage.sync.set({ "profile": data });
-      sendDataToBackground(data);
+      chrome.storage.sync.set({ "profile": data }, function() {
+        sendDataToBackground();
+      });
     }
+    sendDataToBackground();
   });
 };
 
@@ -62,8 +64,9 @@ function changeKey(name, key) {
         disableKeys();
       }
     }
-    chrome.storage.sync.set({ "profile": obj.profile });
-    sendDataToBackground(obj.profile);
+    chrome.storage.sync.set({ "profile": obj.profile }, function() {
+      sendDataToBackground();
+    });
   });
 };
 
@@ -81,13 +84,14 @@ function enableKey(key) {
   if(i === -1) { return; }
   disabledKeys.splice(i, 1);
   $("select").each(function() {
-    console.log($(this).find('option[value="' + key + '"]'));
-    $(this).find('option[value="' + key + '"]').removeAttr("disabled")
+    $(this).find('option[value="' + key + '"]').removeAttr("disabled");
   });
 };
 
 function sendDataToBackground(profile) {
-  chrome.runtime.sendMessage({ data: profile });
+  chrome.storage.sync.get("profile", function(obj) {
+    chrome.runtime.sendMessage({ data: obj.profile });
+  });
 };
 
 function addInstructions() {

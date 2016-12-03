@@ -12,6 +12,8 @@ function getRedirect(url) {
 };
 
 function matchRedirect(searchKey, searchTerm) {
+  console.log(searchTerm, searchKey)
+  console.log(localstorage)
   for(obj of localstorage) {
     if(searchKey === obj["key"].toLowerCase()) {
       return { redirectUrl: obj["searchUrl"] + searchTerm };
